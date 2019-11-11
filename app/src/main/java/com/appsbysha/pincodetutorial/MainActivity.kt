@@ -97,7 +97,7 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
                     } else
 
                     //will test code the moment the last character is inserted and all digits have a number
-                        testCodeValidity()
+                        verifyCode(testCodeValidity())
 
 
                 }
@@ -106,7 +106,7 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
     }
 
 
-    private fun testCodeValidity() {
+    private fun testCodeValidity(): String {
         var verificationCode = ""
         for (j in editTextArray.indices) {
             val digit = editTextArray[j].text.toString().trim { it <= ' ' }
@@ -114,9 +114,9 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
 
         }
         if (verificationCode.trim { it <= ' ' }.length == NUM_OF_DIGITS) {
-            verifyCode(verificationCode)
+            return verificationCode
         }
-        return
+        return ""
     }
 
 
@@ -128,15 +128,15 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
             }
 
             R.id.verifyButton ->
-                testCodeValidity()
+                verifyCode(testCodeValidity())
         }
     }
 
 
     private fun verifyCode(verificationCode: String) {
-
+        if (verificationCode.isNotEmpty())
         //check code
-        enableCodeEditTexts(false)
+            enableCodeEditTexts(false)
     }
 
     override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
