@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+    <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="150dp"
+            android:text="Enter Pin"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    <LinearLayout
+            android:id="@+id/codeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginEnd="20dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title">
+
+        <EditText
+                android:id="@+id/digit1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="13dp"
+                android:layout_weight="1"
+                android:imeOptions="actionDone"
+                android:inputType="phone"
+                android:maxLength="2"
+                android:maxLines="1"
+                android:textAlignment="center" />
+
+        <EditText
+                android:id="@+id/digit2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="13dp"
+                android:layout_weight="1"
+                android:imeOptions="actionDone"
+                android:inputType="phone"
+                android:maxLength="2"
+                android:maxLines="1"
+                android:textAlignment="center" />
+
+        <EditText
+                android:id="@+id/digit3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="13dp"
+                android:layout_weight="1"
+                android:imeOptions="actionDone"
+                android:inputType="phone"
+                android:maxLength="2"
+                android:maxLines="1"
+                android:textAlignment="center" />
+
+        <EditText
+                android:id="@+id/digit4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="13dp"
+                android:layout_weight="1"
+                android:inputType="phone"
+                android:imeOptions="actionDone"
+                android:maxLength="2"
+                android:maxLines="1"
+                android:textAlignment="center" />
+
+    </LinearLayout>
+
+    <Button
+            android:id="@+id/initButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            android:text="Clear"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/codeLayout" />
+
+    <Button
+            android:id="@+id/verifyButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            android:text="Verify"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/codeLayout" />
+</android.support.constraint.ConstraintLayout>
