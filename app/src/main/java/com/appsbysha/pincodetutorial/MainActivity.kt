@@ -13,7 +13,6 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
     private lateinit var numTemp: String
 
 
-
     private val editTextArray: ArrayList<EditText> = ArrayList(NUM_OF_DIGITS)
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,7 +35,7 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
                         //this is for backspace
                         if (index != 0) {
                             editTextArray[index - 1].requestFocus()
-                            editTextArray[index - 1].setSelection(editTextArray[index- 1].length())
+                            editTextArray[index - 1].setSelection(editTextArray[index - 1].length())
                         }
                     }
                     false
@@ -79,9 +78,9 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
 
         (0 until editTextArray.size)
             .forEach { i ->
-                if (s === editTextArray[i].editableText){
-                //if more than 1 char
-                    if(s.isBlank()){
+                if (s === editTextArray[i].editableText) {
+                    //if more than 1 char
+                    if (s.isBlank()) {
                         return
                     }
                     if (s.length >= 2) {
@@ -96,25 +95,29 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
                         editTextArray[i + 1].setSelection(editTextArray[i + 1].length())
                         return
                     } else
-                    //last character is full
-                    {
-                        var verificationCode = ""
-                        for (j in editTextArray.indices) {
-                            val digit = editTextArray[j].text.toString().trim { it <= ' ' }
-                            verificationCode += digit
 
-                        }
-                        if (verificationCode.trim { it <= ' ' }.length == NUM_OF_DIGITS) {
-                            verifyCode(verificationCode)
-                        }
-                        return
-                    }
+                    //will test code the moment the last character is inserted and all digits have a number
+                        testCodeValidity()
 
-            }
+
+                }
             }
 
     }
 
+
+    private fun testCodeValidity() {
+        var verificationCode = ""
+        for (j in editTextArray.indices) {
+            val digit = editTextArray[j].text.toString().trim { it <= ' ' }
+            verificationCode += digit
+
+        }
+        if (verificationCode.trim { it <= ' ' }.length == NUM_OF_DIGITS) {
+            verifyCode(verificationCode)
+        }
+        return
+    }
 
 
     override fun onClick(v: View?) {
@@ -124,16 +127,16 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
                 enableCodeEditTexts(true)
             }
 
-            R.id.verifyButton -> enableCodeEditTexts(false)
+            R.id.verifyButton ->
+                testCodeValidity()
         }
     }
-
 
 
     private fun verifyCode(verificationCode: String) {
 
         //check code
-
+        enableCodeEditTexts(false)
     }
 
     override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
