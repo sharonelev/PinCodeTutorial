@@ -69,7 +69,6 @@
                 android:id="@+id/digit4"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="13dp"
                 android:layout_weight="1"
                 android:inputType="phone"
                 android:imeOptions="actionDone"
@@ -83,17 +82,17 @@
             android:id="@+id/initButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="30dp"
+            android:layout_marginTop="30dp"
             android:text="Clear"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@id/codeLayout"
             app:layout_constraintTop_toBottomOf="@id/codeLayout" />
 
     <Button
             android:id="@+id/verifyButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="30dp"
+            android:layout_marginTop="30dp"
             android:text="Verify"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/codeLayout"
             app:layout_constraintTop_toBottomOf="@id/codeLayout" />
 </android.support.constraint.ConstraintLayout>
